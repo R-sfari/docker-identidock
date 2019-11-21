@@ -3,4 +3,4 @@ identidock
 
 Simple identicon server based on monsterid from Kevin Gaudin.
 
-From "Using Docker" book by Adrian Mouat published by O'Reilly Media.
+From ["Using Docker"](http://shop.oreilly.com/product/0636920035671.do) by Adrian Mouat published by O'Reilly Media.
