@@ -2,10 +2,11 @@ from flask import Flask, request, Response, url_for
 import requests
 import hashlib
 import redis
+import html
 
 app = Flask(__name__)
 
-cache = redis.StrictRedis(host='redis', port='6379', db=0)
+cache = redis.StrictRedis(host='redis', port=6379, db=0)
 default_name = "Rami sfari"
 salt = "UNIQUE_SALT"
 
@@ -15,7 +16,7 @@ def index():
     
     name = default_name
     if request.method == 'POST':
-        name = request.form['name']
+        name = html.escape(request.form['name'], quote=True)
 
     salted_name = salt + name
     name_hash = hashlib.sha256(salted_name.encode()).hexdigest()
